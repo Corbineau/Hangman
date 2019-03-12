@@ -29,21 +29,37 @@ var game = {
 
     },
 
- //   checkGuess: function () {
- //       this.gameWord.forEach(function (guess) {
- //           if (this.gameWord.indexOf(guess) !== -1) {
- //               var i = this.gameWord.indexOf(guess);
- //               progressWord.forEach(i, guess)
- //               progressWord[i] = guess;
- //               document.getElementById("wordfield").innerHTML = progressWord.join('');
- //           } else {
- //               this.guessedLetters.push(guess);
- //               document.getElementById("guessed").innerHTML = this.guessedLetters;
-  //              this.guessesLeft--;
-  //              document.getElementById("guessesLeft").innerHTML = this.guessesLeft;
- //           }
-  //      });
-  //  },
+    checkGuess: function (guess) {
+        if (this.gameWord.indexOf(guess) !== -1) {
+            for (var i = 0; i < this.gameWord.length; i++) {
+                if (this.gameWord[i] === guess) {
+                    progressWord[i] = this.gameWord[i];
+                }
+            }
+            document.getElementById("wordfield").innerHTML = progressWord.join('');
+        } else {
+            this.guessedLetters.push(guess);
+            document.getElementById("guessed").innerHTML = this.guessedLetters;
+            this.guessesLeft--;
+            document.getElementById("guessesLeft").innerHTML = this.guessesLeft;
+        }
+    },
+
+    //   checkGuess: function () {
+    //       this.gameWord.forEach(function (guess) {
+    //           if (this.gameWord.indexOf(guess) !== -1) {
+    //               var i = this.gameWord.indexOf(guess);
+    //               progressWord.forEach(i, guess)
+    //               progressWord[i] = guess;
+    //               document.getElementById("wordfield").innerHTML = progressWord.join('');
+    //           } else {
+    //               this.guessedLetters.push(guess);
+    //               document.getElementById("guessed").innerHTML = this.guessedLetters;
+    //              this.guessesLeft--;
+    //              document.getElementById("guessesLeft").innerHTML = this.guessesLeft;
+    //           }
+    //      });
+    //  },
 
     checkWins: function () {
 
@@ -52,14 +68,14 @@ var game = {
 
 
 
-    //start the game
-    document.onkeyup = function () {
-        if (game.gameOn === false) {
-            game.newGame();
-            game.newWord();
-        } else {
-            var guess = event.key;
-            game.checkGuess(guess);
-            console.log(guess);
-        }
+//start the game
+document.onkeyup = function () {
+    if (game.gameOn === false) {
+        game.newGame();
+        game.newWord();
+    } else {
+        var guess = event.key;
+        game.checkGuess(guess);
+        console.log(guess);
     }
+}
