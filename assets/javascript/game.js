@@ -3,7 +3,7 @@ var game = {
     gameOn: false,
     gameWord: "",
     progressWord: [],
-    words: ["xenogenesis", "starseed", "change", "clayark", "pattern", "kindred", "butler", "delaney", "acorn", "robot", "dawn", "asimov", "mule", "crisis", "parable", "lilith", "starship", "fledgeling", "wildseed", "doro"],
+    words: ["xenogenesis", "starseed", "change", "clayark", "pattern", "kindred", "butler", "delaney", "acorn", "robot", "dawn", "asimov", "mule", "crisis", "parable", "lilith", "starship", "fledgeling", "wildseed", "doro", "pelted", "stardancer", "earthrise", "eldritch", "escheuton", "planet", "spaceship", "alliance", "fleet", "change", "companion", "sower", "changeling"],
     guessesLeft: 15,
     totalWins: 0,
     winStreak: 0,
@@ -32,6 +32,7 @@ var game = {
     },
 
     checkGuess: function (guess) {
+        var guess = guess.toLowerCase();
         if (this.gameWord.indexOf(guess) !== -1) {
             for (var i = 0; i < this.gameWord.length; i++) {
                 if (this.gameWord[i] === guess) {
@@ -51,7 +52,9 @@ var game = {
         if(this.guessesLeft <= 0) {
             this.gameOn = false;
             this.winStreak = 0;
-            document.getElementById("guessesLeft").innerHTML = "Game Over! Press any key to play again!"
+            document.getElementById("guessesLeft").innerHTML = "Game Over! Press any key to play again.";
+            //var gameOver = document.createElement("<p class='gameover'>Game Over! Press Any Key to play Again!</b>");
+            //document.getElementById("guessesLeft").append(gameOver);
             document.getElementById("winStreak").innerHTML = this.winStreak;
         } else if(this.progressWord.indexOf('_ ') === -1) {
             this.totalWins++;
