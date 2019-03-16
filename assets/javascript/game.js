@@ -52,17 +52,15 @@ var game = {
         if(this.guessesLeft <= 0) {
             this.gameOn = false;
             this.winStreak = 0;
-            document.getElementById("guessesLeft").innerHTML = "Game Over! Press any key to play again.";
-            //var gameOver = document.createElement("<p class='gameover'>Game Over! Press Any Key to play Again!</b>");
-            //document.getElementById("guessesLeft").append(gameOver);
+            document.getElementById("guessesLeft").innerHTML = " <strong>Game Over! Press any key to play again.</strong>";
             document.getElementById("winStreak").innerHTML = this.winStreak;
         } else if(this.progressWord.indexOf('_ ') === -1) {
+            this.gameOn = false;
             this.totalWins++;
             this.winStreak++;
-            document.getElementById("wins").innerHTML = this.totalWins;
-            document.getElementById("winStreak").innerHTML = this.winStreak;
-            this.newGame();
-            this.newWord();
+            document.getElementById("wins").innerHTML = `  ${this.totalWins}`;
+            document.getElementById("winStreak").innerHTML = `  ${this.winStreak}`;
+            document.getElementById("guessesLeft").innerHTML = " <strong>You Win! Press any key to play again.</strong>";
         }
 
     },

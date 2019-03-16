@@ -35,32 +35,21 @@ h3 {
 
 header {
     width: 100%;
-    margin: 1rem auto;
+    margin: 1rem 0rem;
     background-color: whitesmoke;
     text-align: center;
     vertical-align: middle;
-    border-top: 2px double purple;
-    border-bottom: 2px double purple;
+    border-top: 2px dotted purple;
+    border-bottom: 2px dotted purple;
 }
 
-#score {
-    border: 1px dotted black;
+strong {
+    font-weight: bold;
+    font-size: 14px;
 }
 
-#wordfield {
-    border: 1px dotted black;
-}
-
-#guessbox {
-    border: 1px dotted black;
-}
-
-#letterbox {
-    border: 1px dotted black;
-}
-
-#guessed {
-    border: 1px dotted black;
+.stat {
+    padding: 0rem .5rem;
 }
 
 .text {
@@ -69,29 +58,28 @@ header {
     justify-content: center;
     text-align: center;
     vertical-align: middle;
+    padding: 0rem .5rem;
 }
 
 .wrapper {
+    display: flex;
+    align-self: center;
     background-image: url(../images/wormhole.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:  cover;
     display: flex;
     flex-flow: column wrap;
-    align-content: center;
-    justify-content: center;
-    padding: 5rem;
-    margin: 0 auto;
+    padding: 5rem 0rem;
     width: 100%;
     height: 100%;
-    border: 1px dotted #000;
+
 }
 
 .gamefield {
     display: flex;
     flex-flow: column;
-    align-content: center;
     justify-content: space-evenly;
-    width: 50%;
+    width: 40%;
     height: 100%;
     padding: 3rem;
     margin: 0 auto;
@@ -106,7 +94,7 @@ footer {
     margin: 0 auto;
     text-align: center;
     vertical-align: middle;
-    border-top: 2px double purple;
+    border-top: 2px dotted purple;
     background-color: whitesmoke;
     color: #000;
     font-size: .75rem;
