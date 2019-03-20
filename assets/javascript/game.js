@@ -33,7 +33,9 @@ var game = {
 
     checkGuess: function (guess) {
         var guess = guess.toLowerCase();
-        if (this.gameWord.indexOf(guess) !== -1) {
+        if (this.guessedLetters.indexOf(guess) !== -1) {
+            console.log(guess);
+        } else if (this.gameWord.indexOf(guess) !== -1) {
             for (var i = 0; i < this.gameWord.length; i++) {
                 if (this.gameWord[i] === guess) {
                     this.progressWord[i] = this.gameWord[i];
@@ -75,8 +77,10 @@ document.onkeyup = function () {
         game.newWord();
     } else {
         var guess = event.key;
-        game.checkGuess(guess);
+        if ((/[a-zA-Z_ ]/.test(guess))) { //check if it's a letter
         console.log(guess);
+        game.checkGuess(guess);
+        }
         game.checkEnd();
     }
 }
