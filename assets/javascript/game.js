@@ -54,7 +54,7 @@ var game = {
         if(this.guessesLeft <= 0) {
             this.gameOn = false;
             this.winStreak = 0;
-            document.getElementById("guessesLeft").innerHTML = " <strong>Game Over! Press any key to play again.</strong>";
+            document.getElementById("guessesLeft").innerHTML = `<strong>Game Over! The word was, '${this.gameWord}'. Press any key to play again.</strong>`;
             document.getElementById("winStreak").innerHTML = this.winStreak;
         } else if(this.progressWord.indexOf('_ ') === -1) {
             this.gameOn = false;
